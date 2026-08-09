@@ -1,0 +1,52 @@
+form {
+    margin-top: 50px;
+    margin-left: 500px;
+    padding-left: 50px;
+    padding-top: 20px;
+
+    height: 800px;
+    width: 800px;
+
+    border: 2px solid black;
+
+    background-color: rgb(185, 218, 192);
+    border-radius: 10px;
+}
+
+label {
+    background-color: rgb(195, 220, 241);
+}
+
+.last {
+    background-color: rgb(195, 220, 241);
+    border: 1px solid white;
+}
+
+input,option,select,textarea {
+    background-color: antiquewhite;
+}
+
+body {
+    background-color: azure;
+}
+
+#fname,#email,#pw {
+    width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
+}
+
+label {
+    font-size: large;
+    font-weight: 100;
+}
+
+#reset {
+    background-color: rgb(231, 128, 128);
+}
+#submit {
+    background-color: rgb(201, 191, 157);
+}

@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tech { color: blue; font-weight: bold; }
+.sports { color: green; font-weight: bold; }
+.arts { color: purple; font-weight: bold; }
+
+.date { color: red; font-size: 14px; }
+
+.btn {
+    display: block;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 15px;
+}

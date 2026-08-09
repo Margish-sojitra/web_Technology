@@ -1,0 +1,79 @@
+nav {
+    display: flex;
+    gap: 135px;
+    background: white;
+    padding: 10px;
+    opacity: 0.5;
+}
+
+h1 {
+    color: black;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    background-image: url("CHARUSAT.png");
+    background-size: cover;
+    background-color: #ffde68;
+}
+
+section {
+    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+
+}
+
+div {
+    background: lightgreen;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+    height: 200px;
+    width: 400px;
+}
+img {
+    margin-top: 20px;
+}
+
+#one {
+    background-image: url("sport.avif");
+    background-size: cover;
+}
+
+#two {
+    background-image: url("Event.avif");
+    background-size: cover;
+    color: white;
+}
+
+#three {
+    background-image: url("Eduction.jpg");
+    background-size: contain;
+}
+
+#four {
+    background-image: url("Medical.jpg");
+    background-size: contain;
+}
+
+#bt {
+    background-color: white;
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(91, 188, 248);
+}
+
+ul {
+    list-style-type: none;
+}

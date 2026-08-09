@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="FAQ.css">
+</head>
+<body>
+    <nav>
+        <button onclick="theme()">Theme</button><br><br><br><br>
+        
+        <button onclick="faq1()">How do I reset my student account password?</button><br><br>
+        <div class="answer" id="ans">
+            Click the "Forgot Password" link on the login page. Type in your school email address. Follow the reset steps sent to your inbox.
+        </div>
+        <button onclick="faq2()">Where can I turn in my homework assignments?</button><br><br>
+        <div class="answer" id="ans1">
+            Click the "Forgot Password" link on the login page. Type in your school email address. Follow the reset steps sent to your inbox.
+        </div>
+        <button onclick="faq3()">How do I change my contact phone number or address?</button>
+        <div class="answer" id="ans2">
+            Click the "Forgot Password" link on the login page. Type in your school email address. Follow the reset steps sent to your inbox.
+        </div>
+    </nav>
+
+    
+
+
+    <script>
+        function theme() {
+            document.body.classList.toggle("dark");
+        }
+        function faq1(){
+            var a = document.getElementById("ans");
+            if(a.style.display=="block")
+                a.style.display = "none";
+            else {
+                a.style.display = "block";
+            }
+        }
+        function faq2(){
+            var a = document.getElementById("ans1");
+            if(a.style.display == "block"){
+                a.style.display = "none";
+            }else {
+                a.style.display = "block";
+            }
+        }
+        function faq3(){
+            var a = document.getElementById("ans2");
+            if(a.style.display == "block"){
+                a.style.display = "none";
+            }else {
+                a.style.display = "block";
+            }
+        }
+    </script>
+
+
+</body>
+</html>

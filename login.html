@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <hr>
+    <h1>Student Register</h1>
+    <hr>
+    <form action="./action" name="myForm" method="get" onsubmit="return f()">
+        <label for="fname">Full Name : </label><br><br>
+        <input type="text" id="fname" name="fname" placeholder="Full Name">
+        <br><br><br>
+
+        <label for="email">E-mail : </label><br><br>
+        <input type="email" id="email" name="Email" placeholder="xyz123@gmail.com">
+        <br><br><br>
+
+        <label for="pw">Password : </label><br><br>
+        <input type="password" id="pw" name="password" placeholder="Password">
+        <br><br><br>
+
+        <label>Gender : </label><br><br>
+        <input type="radio" id="male" name="gender" value="m"> <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="f"> <label for="female">FeMale</label>
+        <input type="radio" id="other" name="gender" value="other"> <label for="other">Other</label>
+        <br><br><br>
+
+        <label for="dept">Department :</label><br><br>
+        <select id="dept" name="department">
+            <option value="" selected disabled>Select Department</option>
+            <option value="CS">CS</option>
+            <option value="IT">IT</option>
+            <option value="AIML">AI-Ml</option>
+            <option value="EC">EC</option>
+        </select>
+        <br><br><br>
+
+        <label for="Hobbies">Hobbies : </label><br><br>
+        <textarea id="Hobbies" name="Hobbies" rows="4" cols="30" placeholder="Enter Hobbies"></textarea>
+        <br><br><br>
+
+        <input type="submit" value="Register" class="last" id="submit">
+        <input type="reset" value="reset" class="last" id="reset">
+    </form>
+
+    <script>
+        function f() {
+            alert("Register successful");
+        }
+    </script>
+</body>
+</html>

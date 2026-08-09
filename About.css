@@ -1,0 +1,9 @@
+body {
+    background-color: aqua;
+}
+
+div {
+    width: 80%;
+    margin: auto;
+    margin-top: 300px;
+}

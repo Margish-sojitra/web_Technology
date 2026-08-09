@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://admission.charusat.ac.in/Login.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>
+	Admission - CHARUSAT
+</title><meta name="description"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="./Home-page_files/style.css" rel="stylesheet"></head>
+<body>
+    <div class="alert-boxes-holder hidden">
+        <div class="alert-box"></div>
+        <div class="alert-box-success"></div>
+    </div>
+    <div class="parent-box">
+        <div class="back-holder">
+            <div class="overlay"></div>
+        </div>
+        <div class="work-area">
+
+
+            <div class="content-area-medium mini-form-with-information">
+                <div class="head-image">
+                    <img src="./Home-page_files/University Logo.jpg" alt="">
+                    <img src="./Home-page_files/University Logo Tagline.png" alt="">
+                </div>
+
+                <div class="pills-holder" style="padding: 10px 30px">
+                    
+                    
+                </div>
+
+
+                <div class="mini-form-area">
+                    <div class="information">
+                        <img style="max-height: 350px; width: inherit; max-width: 300px; justify-self: center; align-self: center; border-radius:20px; background-color:white;" src="./Home-page_files/2.gif">
+                    </div>
+                    <div class="mini-form">
+                        <form method="post" action="https://admission.charusat.ac.in/Login.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="JMc2qpILV88Kpx4m0hgmXB5GBSvb8t/iBSAe/8Jb2LrQlfzcs4mBX8kd5/GKEEk1d3QJPMwzE2NLKN6KXF2k+lmxNX5P7wYVeIYGPTuQiE8=">
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="leuGP6sYJEDrimCUjhPSK705eBXfHP2Axjd5rHkPxDuMGKmGEhMZNONaxqPkUvRf7SKxTHwgbA3z1Uwj18EkILG7Xe85kWvKL7R1YHjKir+5GZJSVK8OvtmAW5gAqbJeS+CnJBlxfsmW1Bq3UQm8RFaVw7c0B7i7k6Au0zfcjWY=">
+</div>
+                            <div class="title">
+                                <span>Login</span>
+                            </div>
+
+                            <div class="control-container">
+                                <label for="txtEmailOrMobile" id="lblEmailOrMobile">Email or Mobile Number*</label>
+                                <input name="txtEmailOrMobile" type="text" id="txtEmailOrMobile" tabindex="1" onblur="validateMobileNumberOrEmailID(this)">
+                                <div class="pills">
+                                    <span class="error"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-container">
+                                <label for="txtOtp" id="lblOtp">OTP*</label>
+                                <input name="txtOtp" type="number" id="txtOtp" tabindex="2" onblur="validateForOnlyNumbers(this)">
+                                <div class="pills">
+                                    <span class="error"></span>
+                                    
+                                    <span class="info">You can use the most recent OTP sent to your registered Mobile Number.</span>
+                                </div>
+                            </div>
+
+                            <input type="submit" name="btnLogin" value="" id="btnLogin" class="hidden">
+                            <div class="button" id="btnSubmit" tabindex="3" onclick="SubmitForm()">
+                                Login
+                            </div>
+
+                            <br>
+                            <br>
+                            <div class="button button-secondary" id="btnOtpResend" onclick="resendCode()">
+                                Get a new OTP
+                            </div>
+                            <span id="otp-timer"></span>
+
+                            <div class="horizontal-line"></div>
+                            <div class="button button-extra" id="btnRegister">
+                                Register
+                            </div>
+                            <br>
+                            <div>
+                                <a href="https://admission.charusat.ac.in/View%20Assets/Docs/Admission%20Process,%20Registration%20Steps%20&amp;%20Fee%20Structure%202026-27.pdf" target="_blank">View Admission Booklet</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-anim"></div>
+
+    <script src="./Home-page_files/jQuery.js.download"></script>
+    <script src="./Home-page_files/script.js.download"></script>
+    <script>
+        $body = $("body");
+        $('#btnRegister').on('click', function () {
+            window.location.href = "/Registration.aspx"
+        });
+
+        $(document).on({
+            ajaxStart: function () { $body.addClass("loading"); },
+            ajaxStop: function () { $body.removeClass("loading"); }
+        });
+
+        function SubmitForm() {
+            if (validateForOnlyNumbers(document.querySelector("#txtOtp")) && validateMobileNumberOrEmailID(document.querySelector("#txtEmailOrMobile")))
+                $('#btnLogin')[0].click();
+        }
+    </script>
+    <script>
+        let secondsRemaining = 0;
+        let enableResend = false;
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                window.history.forward(1);
+            }, 100)
+
+            $(window).keydown(function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            const error = '';
+            if (error != '') {
+                const alertBox = $('.alert-boxes-holder');
+                setTimeout(function () {
+                    $('.alert-boxes-holder').removeClass('hidden');
+                    alertBox[0].children[0].innerHTML = error;
+                }, 1000)
+                setTimeout(function () {
+                    alertBox[0].children[0].classList.add('alert-box-hidden');
+                }, 1100)
+                setTimeout(function () {
+                    $('.alert-boxes-holder').addClass('hidden');
+                    alertBox[0].children[0].classList.remove('alert-box-hidden');
+                    alertBox[0].children[0].innerHTML = "";
+                }, 11000)
+            }
+        });
+
+        const timer = function () {
+            setTimeout(() => {
+                if (secondsRemaining > 0) {
+                    document.getElementById("otp-timer").textContent = `You can get a new OTP after ${secondsRemaining} seconds`;
+                    secondsRemaining--;
+                    timer();
+                } else {
+                    document.getElementById("otp-timer").textContent = ``;
+                    document.getElementById("btnOtpResend").classList.remove('button-disabled');
+                }
+            }, 1000);
+        }
+
+        timer();
+
+        function resendCode() {
+            if (secondsRemaining <= 0 && validateMobileNumberOrEmailID(document.querySelector("#txtEmailOrMobile"))) {
+                document.getElementById("btnOtpResend").classList.add('button-disabled');
+                document.getElementById("otp-timer").textContent = "Sending...";
+                const userData = { 'value': document.querySelector('#txtEmailOrMobile').value }
+                console.log(userData);
+                $.ajax({
+                    url: '/Service/OTPService.asmx/ReSendOTPLogin',
+                    method: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(userData),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.d.output)
+                        if (data.d.output === "success") {
+                            secondsRemaining = 60;
+                            document.getElementById("btnOtpResend").classList.add('button-disabled');
+                            document.getElementById("otp-timer").textContent = "Sending...";
+                            const alertBox = $('.alert-boxes-holder');
+                            alertBox[0].children[1].innerHTML = data.d.message;
+                            setTimeout(function () {
+                                $('.alert-boxes-holder').removeClass('hidden');
+                            }, 1000)
+                            setTimeout(function () {
+                                alertBox[0].children[1].classList.add('alert-box-hidden');
+                            }, 1100)
+                            setTimeout(function () {
+                                $('.alert-boxes-holder').addClass('hidden');
+                                alertBox[0].children[1].classList.remove('alert-box-hidden');
+                                alertBox[0].children[1].innerHTML = "";
+                            }, 11000)
+                            timer();
+                        }
+                        else {
+
+                            const alertBox = $('.alert-boxes-holder');
+                            alertBox[0].children[0].innerHTML = data.d.output;
+                            setTimeout(function () {
+                                $('.alert-boxes-holder').removeClass('hidden');
+                            }, 1000)
+                            setTimeout(function () {
+                                alertBox[0].children[0].classList.add('alert-box-hidden');
+                            }, 1100)
+                            setTimeout(function () {
+                                $('.alert-boxes-holder').addClass('hidden');
+                                alertBox[0].children[0].classList.remove('alert-box-hidden');
+                                alertBox[0].children[0].innerHTML = "";
+
+                            }, 11000)
+                            secondsRemaining = 60;
+                            document.getElementById("btnOtpResend").classList.add('button-disabled');
+                            document.getElementById("otp-timer").textContent = "";
+                            timer();
+                        }
+                    },
+                    error: function (error) {
+                    }
+                })
+            }
+        }
+    </script>
+
+
+
+
+</body></html>

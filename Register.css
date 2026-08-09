@@ -1,0 +1,91 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: #f4f7f6;
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 450px;
+}
+
+h2 {
+    color: #333333;
+    margin-top: 0;
+    font-size: 2rem; 
+    margin-bottom: 25px;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #666666;
+    margin-bottom: 8px;
+    font-size: 1.1rem; 
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem; 
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.forgot-link {
+    text-align: right;
+    margin-top: -10px;
+}
+
+.forgot-link a {
+    color: #007bff;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.forgot-link a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.remember-me label {
+    display: inline;
+    margin-bottom: 0;
+    font-size: 1rem;
+}

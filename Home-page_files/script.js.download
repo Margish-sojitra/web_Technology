@@ -1,0 +1,646 @@
+if (document.querySelector("#btnSubmit") != null) {
+    document.querySelector("#btnSubmit").addEventListener('keyup', function (event) {
+        if (event.key == "Enter") {
+            document.querySelector("#btnSubmit").click();
+        }
+    })
+}
+function validateNotEmpty(element,minlen=1,maxlen=200) {
+    const fieldName = element.parentNode.children[0].innerHTML;
+
+    if (element.value.trim() === '') {
+        element.nextElementSibling.children[0].innerHTML = fieldName + " is a required field";
+        
+        return false;
+    } else {
+        if (element.value.length >= minlen && element.value.length <= maxlen) {
+            element.nextElementSibling.children[0].innerHTML = "";
+            return true;
+        }
+        else {
+            element.nextElementSibling.children[0].innerHTML = fieldName + " has invalid value";
+
+            return false;
+        }
+    }
+}
+
+function validateNotZeroORNegative(element) {
+    if (element.value.trim() === '' || element.value.trim() <= 0) {
+        element.nextElementSibling.children[0].innerHTML = "This is a required field";
+        
+        return false;
+    } else {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+}
+
+
+function validateEmailFormat(element, allowEmpty = false) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const minlen = 6;
+    const maxlen = 320;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "Email ID is a required field";
+            
+            return false
+        }
+    }
+
+    if ((emailRegex.test(element.value) && (element.value.length >= minlen && element.value.length < maxlen)) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = "Email ID entered is Invalid";
+        
+        return false;
+    }
+}
+
+function validateMobileNumberFormat(element, allowEmpty = false, minlen = 10, maxlen = 10) {
+    const mobileNumberRegex = /^\d{10}$/;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "This is a required field";
+            
+            return false
+        }
+    }
+
+    if ((mobileNumberRegex.test(element.value) && (element.value.length >= minlen && element.value.length <= maxlen)) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = "Mobile Number entered is Invalid";
+        
+        return false;
+    }
+}
+
+function validateMobileNumberOrEmailID(element, allowEmpty = false, mnMinlen = 10, mnMaxlen = 10) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const mobileNumberRegex = /^\d{10}$/;
+    const eMinlen = 6;
+    const eMaxlen = 320;
+
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "This is a required field";
+            
+            return false
+        }
+    }
+
+    if (element.value.includes('@')) {
+        if (emailRegex.test(element.value) && (element.value.length >= eMinlen && element.value.length < eMaxlen) || element.value.trim() == "") {
+            element.nextElementSibling.children[0].innerHTML = "";
+            return true;
+        }
+        else {
+            element.nextElementSibling.children[0].innerHTML = "Email ID entered is Invalid";
+            
+            return false;
+        }
+    }
+    else {
+
+        if (mobileNumberRegex.test(element.value) && (element.value.length >= mnMinlen && element.value.length <= mnMaxlen) || element.value.trim() == "") {
+            element.nextElementSibling.children[0].innerHTML = "";
+            return true;
+        }
+        else {
+            element.nextElementSibling.children[0].innerHTML = "Mobile Number entered is Invalid";
+            
+            return false;
+        }
+    }
+}
+
+
+function validateForOnlyAplhabets(element, allowEmpty = false, minlen = 3, maxlen = 150) {
+    const isAlphabeticalRegex = /^[A-Za-z ]*$/;
+    const fieldName = element.parentNode.children[0].innerHTML;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = fieldName + " is a required field";
+            
+            return false
+        }
+    }
+
+    if (isAlphabeticalRegex.test(element.value) && (element.value.length >= minlen && element.value.length < maxlen) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = fieldName + " entered seems to be Invalid";
+        
+        return false;
+    }
+}
+
+function validateForNumberRange(element, allowEmpty = false, minvalue = 33, maxvalue=100) {
+    const fieldName = element.parentNode.children[0].innerHTML;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = fieldName + " is a required field";
+
+            return false
+        }
+    }
+    const value = Number(element.value);
+
+    if (((value >= minvalue && value <= maxvalue) || value == "") && value !== NaN) {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = fieldName + " entered seems to be Invalid";
+
+        return false;
+    }
+}
+function validateACPCNumber(element, allowEmpty = false) {
+    const customRegex = /^261190\d{6}$/;
+    const fieldName = element.parentNode.children[0].innerHTML;
+
+    if (!allowEmpty && element.value.trim() === "") {
+        element.nextElementSibling.children[0].innerHTML = fieldName + " is a required field";
+        return false;
+    }
+
+    if ((customRegex.test(element.value) && element.value.length === 12) || element.value.trim() === "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    } else {
+        element.nextElementSibling.children[0].innerHTML = fieldName + " must be a 12-digit number starting with 261190";
+        return false;
+    }
+}
+
+
+function validateForOnlyNumbers(element, allowEmpty = false, minlen = 4, maxlen = 4) {
+    const isNumericalRegex = /^[0-9]*$/;
+    const filedName = element.parentNode.children[0].innerHTML;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "This is a required field";
+            
+            return false
+        }
+    }
+
+    if (isNumericalRegex.test(element.value) && (element.value.length >= minlen && element.value.length <= maxlen) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = filedName + " entered is invalid, it must be numeric.";
+        
+        return false;
+    }
+}
+
+function validateForPercentage(element, allowEmpty = false) {
+    const isPercentageRegex = /^(0*100{1,1}.?((?<=.)0*)?%?$)|(^0*\d{0,2}.?((?<=.)\d*)?%?)$/;
+    const filedName = element.parentNode.children[0].innerHTML;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "This is a required field";
+
+            return false
+        }
+    }
+
+    if ((isPercentageRegex.test(element.value) && element.value.length <= 6 && element.value >= 0 && element.value<=100) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = filedName + " entered is invalid, it must be percentage.";
+        return false;
+    }
+}
+
+function validateForACPC(element) {
+    const isACPCRegex = /^ACPC-\d{4}-[A-Z]{2}\d+$/;
+    const filedName = element.parentNode.children[0].innerHTML;
+
+    if (isPercentageRegex.test(element.value)) {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = filedName + " entered is invalid, it must be percentage.";
+        return false;
+    }
+}
+
+function validateForOnlyAlphaNumeric(element, allowEmpty = false, minlen = 5, maxlen = 20) {
+    const isAlphaNumericalRegex = /^[a-zA-Z0-9_.-]*$/;
+    const filedName = element.parentNode.children[0].innerHTML;
+    if (!allowEmpty) {
+        if (element.value.trim() === "") {
+            element.nextElementSibling.children[0].innerHTML = "This is a required field";
+            
+            return false
+        }
+    }
+
+    if (isAlphaNumericalRegex.test(element.value) && (element.value.length >= minlen && element.value.length <= maxlen) || element.value.trim() == "") {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = filedName + " entered is invalid, it must be alphanumeric.";
+        
+        return false;
+    }
+}
+
+function validateAge(element, minage = 16, maxage = 80) {
+    var dobInput = element.value;
+    if (dobInput == null || dobInput == "") {
+        element.nextElementSibling.children[0].innerHTML = "Please select the date of birth";
+        
+        return false;
+    }
+    var dob = new Date(dobInput);
+    var today = new Date();
+    var age = today.getFullYear() - dob.getFullYear();
+    if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate()) || element.value.trim() == "") {
+        age--;
+    }
+    if (age < minage || age > maxage) {
+        element.nextElementSibling.children[0].innerHTML = "Age must be more than " + minage;
+        
+        return false;
+    }
+    else {
+        element.nextElementSibling.children[0].innerHTML = "";
+        return true;
+    }
+}
+function validateDropdowns(element) {
+    const fieldName = element.parentNode.parentNode.children[0].innerHTML;
+    let flag = false;
+    for (let i = 0; i < element.options.length; i++) {
+        if (element.options[i].value === element.value) {
+            flag = true;
+            break;
+        }
+    }
+    if (element.value <= 0 || !flag) {
+        element.parentNode.nextElementSibling.children[0].innerHTML = "You must select " + fieldName;
+        
+        return false;
+    }
+    return true;
+}
+function validateRadios(element) {
+    const fieldName = element[0].parentNode.parentNode.parentNode.children[0].innerHTML;
+    let flag = false;
+    element.forEach(r => {
+        if (r.checked) {
+            flag = true;
+            element[0].parentNode.parentNode.nextElementSibling.children[0].innerHTML = "";
+        }
+    })
+    if (!flag) {
+        element[0].parentNode.parentNode.nextElementSibling.children[0].innerHTML = "You must select " + fieldName;
+        flag = false;
+    }
+    return flag;
+}
+
+function validateImageFile(element, allowEmpty = false) {
+    var allowedExtensions = /(\.jpeg|\.jpg|\.png)$/i;
+    const fieldName = element.parentNode.children[0].innerHTML;
+
+    if (!element.files[0] && !allowEmpty) {
+        element.nextElementSibling.children[0].innerHTML = "You must upload " + fieldName.replace("Upload ","");
+        return false;
+    }
+    if (element.files[0]) {
+        if (element.files[0].size > 2000000) {
+            element.nextElementSibling.children[0].innerHTML = "You must upload file smaller than 2MB";
+            return false;
+        }
+        if (!allowedExtensions.test(element.value)) {
+            element.nextElementSibling.children[0].innerHTML = "Only png,jpg or jpeg files are allowed";
+            return false;
+        }
+    }
+    element.nextElementSibling.children[0].innerHTML = "";
+    return true;
+}
+
+
+function validatePDFFile(element, allowEmpty = false) {
+    var allowedExtensions = /(\.pdf)$/i;
+    const fieldName = element.parentNode.children[0].innerHTML;
+
+    if (!element.files[0] && !allowEmpty) {
+        element.nextElementSibling.children[0].innerHTML = "You must upload " + fieldName.replace("Upload ", "");
+        return false;
+    }
+    if (element.files[0]) {
+        if (element.files[0].size > 20000000) {
+            element.nextElementSibling.children[0].innerHTML = "You must upload file smaller than 20MB";
+            return false;
+        }
+        if (!allowedExtensions.test(element.value)) {
+            element.nextElementSibling.children[0].innerHTML = "Only PDF file is allowed";
+            return false;
+        }
+    }
+    element.nextElementSibling.children[0].innerHTML = "";
+    return true;
+}
+
+function radiosGetSelected(element) {
+    let selected = 0;
+    element.forEach(e => {
+        if (e.checked) {
+            selected = e.value;
+        }
+    })
+    return selected;
+}
+
+function sortObject(objToSort) {
+    let sortable = [];
+    for (var key in objToSort) {
+        sortable.push([key, objToSort[key]]);
+    }
+
+    sortable.sort((a, b) => a[1].localeCompare(b[1]));
+    return sortable;
+}
+
+window.addEventListener('load', function () {
+    designSelects();
+    designRadios();
+})
+const dds = document.querySelectorAll('.flat-dropdown')
+const radios = document.querySelectorAll(".radios > input[type='radio']");
+function designSelects() {
+    dds.forEach(dd => {
+        makeDropdown(dd);
+    })
+}
+function designRadios() {
+    radios.forEach(rb => {
+        makeRadioButton(rb);
+    })
+    document.querySelectorAll('.radios span').forEach(r => {
+
+        var span = r;
+        var actualRadios = []
+        span.childNodes.forEach(a => {
+            actualRadios.push(a);
+        })
+        actualRadios.forEach(a => {
+            span.parentNode.insertBefore(a, span);
+        })
+        span.remove();
+        actualRadios.forEach(a => {
+            if (a.nodeName === 'INPUT')
+                makeRadioButton(a);
+        })
+    })
+    const allRadioParents = document.querySelectorAll('.radios');
+    allRadioParents.forEach(rp => {
+        rp.addEventListener('focus', function () {
+            let isWorked = false;
+            let radioButtons = rp.children;
+            for (let i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].children[0].checked) {
+                    isWorked = true;
+                    break;
+                }
+            }
+            if (!isWorked) {
+                rp.children[0].children[0].click();
+            }
+        })
+        rp.addEventListener('keydown', function (event) {
+            let radioButtons = rp.children;
+            if (event.key === "ArrowLeft") {
+                let checkedIndex;
+                for (let i = 0; i < radioButtons.length; i++) {
+                    if (radioButtons[i].children[0].checked) {
+                        checkedIndex = i;
+                        break;
+                    }
+                }
+                if (checkedIndex > 0) {
+                    radioButtons[checkedIndex - 1].children[0].click();
+                }
+            }
+            if (event.key === "ArrowRight") {
+                let checkedIndex;
+                for (let i = 0; i < radioButtons.length; i++) {
+                    if (radioButtons[i].children[0].checked) {
+                        checkedIndex = i;
+                        break;
+                    }
+                }
+                if (checkedIndex < radioButtons.length - 1) {
+                    radioButtons[checkedIndex + 1].children[0].click();
+                }
+            }
+        })
+    })
+}
+let tester
+function makeDropdown(dd) {
+
+    if (dd.parentNode.classList.value.includes('custom-dropdown-container')) {
+        dd.parentNode.parentNode.insertBefore(dd, dd.parentNode);
+        allDropDownElements = dd.parentNode.children;
+        for (var i = 2; i < allDropDownElements.length; i++)
+            allDropDownElements[i].remove();
+    }
+
+    const cusDD = document.createElement('label')
+    const showCase = document.createElement('div')
+    const openStateRadio = document.createElement('input')
+    const cusDDOptions = document.createElement('div')
+    const valueShower = document.createElement('div')
+    const arrowShower = document.createElement('div')
+
+    showCase.tabIndex = dd.tabIndex;
+    //dd.tabIndex = undefined
+
+
+
+    openStateRadio.type = 'checkbox';
+    function openStateChanged() {
+        if (openStateRadio.checked) {
+            try {
+                //openStateRadio.nextElementSibling.nextElementSibling.children[0].focus();
+                openStateRadio.nextElementSibling.nextElementSibling.children[0].classList.add('current')
+                cusDDOptions.scrollTop = options[0 + 1].offsetTop - 20;
+            }
+            catch {
+
+            }
+        }
+    }
+    openStateRadio.addEventListener('change', function () {
+        openStateChanged();
+    })
+
+
+
+    cusDD.classList.add('custom-dropdown-container')
+    valueShower.classList.add('custom-dropdown-current-selected-show')
+    showCase.classList.add('custom-dropdown-showcase')
+    cusDDOptions.classList.add('custom-dropdown-options-container')
+    arrowShower.classList.add('custom-dropdown-arrow')
+
+
+    dd.parentNode.insertBefore(cusDD, dd)
+    cusDD.appendChild(dd);
+    cusDD.appendChild(openStateRadio)
+    cusDD.appendChild(showCase);
+    showCase.appendChild(valueShower);
+    showCase.appendChild(arrowShower)
+    cusDD.appendChild(cusDDOptions)
+
+    function openDropDown() {
+        if (!openStateRadio.checked)
+            openStateRadio.click();
+    }
+    if (dd.getAttribute('disabled') === 'disabled') {
+        function openDropDown() {
+
+        }
+        showCase.setAttribute("style", "cursor:not-allowed !important")
+    }
+
+    showCase.addEventListener('mousedown', function () {
+
+        dd.parentNode.nextElementSibling.children[0].innerHTML = "";
+        if (openStateRadio.checked) {
+            openStateRadio.click();
+            showCase.parentNode.parentNode.parentNode.focus();
+        }
+        else {
+            openDropDown();
+        }
+    })
+
+    showCase.addEventListener('focus', function () {
+        dd.parentNode.nextElementSibling.children[0].innerHTML = "";
+        openDropDown();
+    })
+
+
+    showCase.addEventListener('blur', function () {
+        setTimeout(function () {
+            if (openStateRadio.checked)
+                openStateRadio.click();
+        }, 500)
+    })
+
+    cusDD.addEventListener('keydown', function (event) {
+        let current = 0;
+        const options = cusDDOptions.children;
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].classList.contains('current')) {
+                current = i;
+                break;
+            }
+
+        }
+        if (options[current] !== undefined && !(Number(current + 1) >= options.length) && !(Number(current) <= 0))
+            options[current].classList.remove('current');
+
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+
+            if (!(Number(current + 1) >= options.length)) {
+                options[current].classList.remove('current');
+                options[current + 1].classList.add('current');
+                cusDDOptions.scrollTop = options[current + 1].offsetTop - 20;
+            }
+        }
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+
+            if (!(Number(current) <= 0)) {
+                options[current].classList.remove('current');
+                options[current - 1].classList.add('current');
+                cusDDOptions.scrollTop = options[current - 1].offsetTop - 20;
+            }
+        }
+        if (event.key === "Escape") {
+            openStateRadio.click();
+        }
+        if (event.key === "Enter") {
+            options[current].click();
+        }
+        if (event.key.length === 1 && event.key.match(/[a-zA-Z]/)) {
+            event.preventDefault();
+
+            keyPressed = event.key.toLowerCase();
+            for (let i = 0; i < options.length; i++) {
+                if (keyPressed === options[i].innerHTML[0].toLowerCase()) {
+                    options[current].classList.remove('current');
+                    options[i].classList.add('current');
+                    cusDDOptions.scrollTop = options[i].offsetTop - 20;
+                    break;
+                }
+            }
+        }
+    })
+
+
+    const options = dd.children;
+    for (let i = 0; i < options.length; i++) {
+
+        const cusOption = document.createElement('div')
+
+        cusOption.innerHTML = options[i].innerHTML;
+        cusOption.setAttribute('value', options[i].value);
+        if (options[i].selected == true) {
+            valueShower.innerHTML = options[i].innerHTML;
+        }
+        cusOption.addEventListener('click', function () {
+            cusOption.tabIndex = showCase.tabIndex
+            dd.value = options[i].value;
+            const fieldName = dd.parentNode.parentNode.children[0].innerHTML;
+            if (dd.getAttribute('required') === "true") {
+                if (dd.value <= 0) {
+                    dd.parentNode.nextElementSibling.children[0].innerHTML = "You must select " + fieldName;
+                }
+            }
+            openStateRadio.click();
+            valueShower.innerHTML = options[i].innerHTML;
+            if (dd.getAttribute('onChange') !== null) {
+                //const callback = dd.id + ".UniqueID";
+                //__doPostBack('<%= callback %>', '');
+                window[dd.getAttribute('onChange')](dd.value);
+            }
+        })
+        cusDDOptions.appendChild(cusOption);
+    }
+}
+
+function makeRadioButton(rb) {
+    const radioHolder = document.createElement('div');
+    const radiosLabel = rb.nextElementSibling;
+    const fakeRadio = document.createElement('div');
+    rb.parentNode.insertBefore(radioHolder, rb);
+    fakeRadio.classList.add("fake-radio")
+    radioHolder.classList.add('radio-holder');
+    radioHolder.appendChild(rb);
+    radioHolder.appendChild(fakeRadio);
+    radioHolder.appendChild(radiosLabel);
+}
