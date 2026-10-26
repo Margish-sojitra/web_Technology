@@ -1,4 +1,33 @@
-table,th,td{
-    border: 1px solid black;
-    border-collapse: collapse;
+/* ========================================================================== */
+/* Practical 3: Responsive UI Design using CSS Grid and Flexbox - Contact Styles */
+/* ========================================================================== */
+@import url('css/style.css');
+
+.card-address {
+    font-style: normal;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-hours-box, .campus-address-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+}
+
+.contact-hours-box h3, .campus-address-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form-card {
+    padding: 2rem;
 }
