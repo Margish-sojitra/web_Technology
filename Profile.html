@@ -1,20 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <meta name="description" content="Student Profile - View and update your academic credentials, enrolled clubs, personal bio, and contact preferences.">
+    <title>StudentHub | Student Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="Profile.css">
 </head>
 <body>
-    <div class="profile-card">
-        <img src="https://placeholder.com" alt="Profile Picture" class="profile-img">
-        <h1>Alex Smith</h1>
-        <p class="title">Web Developer</p>
-        <p class="description">I love building simple and clean web pages using HTML and CSS.</p>
-        <div class="button-container">
-            <button class="btn">Contact Me</button>
+    <!-- ========================================================================== -->
+    <!-- Practical 2: Semantic HTML5 Pages with Accessibility-Ready Structure -->
+    <!-- Skip link for keyboard accessibility -->
+    <!-- ========================================================================== -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="StudentHub Home Page">
+                <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                <span class="logo-text">Student<strong>Hub</strong></span>
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <nav class="primary-nav" id="primaryNav" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="profile.html" class="nav-link active" aria-current="page">Profile</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle light and dark color theme">
+                        <span class="theme-icon" aria-hidden="true">&#9790;</span>
+                        <span class="theme-text">Dark Mode</span>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Logout</a>
+                </div>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <main id="main-content" class="main-wrapper" role="main">
+        <div class="container profile-page-container">
+            <!-- Profile Hero Section -->
+            <section class="profile-header-card" aria-labelledby="profile-title">
+                <div class="profile-banner-bg" aria-hidden="true"></div>
+                <div class="profile-header-content">
+                    <div class="profile-avatar-wrap">
+                        <img src="Student.avif" alt="Profile photo of Alex Smith smiling in university grounds" class="profile-avatar-img">
+                        <span class="online-indicator" aria-label="Online status: active"></span>
+                    </div>
+                    <div class="profile-title-block">
+                        <h1 id="profile-title">Alex Smith</h1>
+                        <p class="profile-subtitle">Undergraduate Student &bull; Department of Information Technology</p>
+                        <div class="profile-tags">
+                            <span class="badge badge-primary">ID: 24IT042</span>
+                            <span class="badge badge-success">Semester 5</span>
+                            <span class="badge badge-info">NAAC Scholar</span>
+                        </div>
+                    </div>
+                    <div class="profile-action-btns">
+                        <button type="button" class="btn btn-primary" id="editProfileBtn">&#9998; Edit Profile</button>
+                        <a href="dashboard.html" class="btn btn-secondary">Open Dashboard</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Details Grid (CSS Grid & Flexbox) -->
+            <div class="profile-content-grid">
+                <!-- Left Sidebar: Quick Info & Bio -->
+                <aside class="profile-aside" aria-labelledby="about-me-heading">
+                    <article class="info-card">
+                        <h2 id="about-me-heading" class="card-heading">About Me</h2>
+                        <p class="bio-text">
+                            Aspiring full-stack web developer and cloud enthusiast. Passionate about creating accessible, high-performance web applications and contributing to university open-source tech initiatives.
+                        </p>
+                        <hr class="divider">
+                        <ul class="meta-info-list">
+                            <li>
+                                <span class="meta-icon" aria-hidden="true">&#127891;</span>
+                                <div>
+                                    <span class="meta-label">University</span>
+                                    <span class="meta-val">CHARUSAT - CSPIT</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="meta-icon" aria-hidden="true">&#128231;</span>
+                                <div>
+                                    <span class="meta-label">Official Email</span>
+                                    <a href="mailto:alex.smith@charusat.edu.in" class="meta-val">alex.smith@charusat.edu.in</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="meta-icon" aria-hidden="true">&#128222;</span>
+                                <div>
+                                    <span class="meta-label">Mobile</span>
+                                    <span class="meta-val">+91 98765 43210</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                                <div>
+                                    <span class="meta-label">Campus Residence</span>
+                                    <span class="meta-val">Hostel Block B, Room 204</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Technical Skills -->
+                    <article class="info-card">
+                        <h2 class="card-heading">Skills &amp; Technologies</h2>
+                        <div class="skills-wrap">
+                            <span class="skill-tag">HTML5 &amp; Accessibility</span>
+                            <span class="skill-tag">CSS Grid / Flexbox</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Git &amp; GitHub</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                    </article>
+                </aside>
+
+                <!-- Right Main Column: Academic Performance & Club Memberships -->
+                <section class="profile-main-area" aria-labelledby="academic-details-heading">
+                    <!-- Academic Performance Summary -->
+                    <article class="info-card">
+                        <h2 id="academic-details-heading" class="card-heading">Academic Record &amp; Transcripts</h2>
+                        <div class="table-responsive">
+                            <table class="data-table" aria-label="Academic semester GPA performance">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Semester</th>
+                                        <th scope="col">SGPA</th>
+                                        <th scope="col">CGPA</th>
+                                        <th scope="col">Credits Earned</th>
+                                        <th scope="col">Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Semester 1</td>
+                                        <td>9.10</td>
+                                        <td>9.10</td>
+                                        <td>22</td>
+                                        <td><span class="badge badge-success">Distinction</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Semester 2</td>
+                                        <td>9.35</td>
+                                        <td>9.22</td>
+                                        <td>23</td>
+                                        <td><span class="badge badge-success">Distinction</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Semester 3</td>
+                                        <td>9.40</td>
+                                        <td>9.28</td>
+                                        <td>24</td>
+                                        <td><span class="badge badge-success">Distinction</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Semester 4</td>
+                                        <td>9.60</td>
+                                        <td>9.42</td>
+                                        <td>24</td>
+                                        <td><span class="badge badge-success">Distinction</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <!-- Enrolled Clubs & Leadership Roles -->
+                    <article class="info-card">
+                        <h2 class="card-heading">Clubs &amp; Extracurricular Leadership</h2>
+                        <div class="pillars-grid">
+                            <div class="pillar-card compact">
+                                <div class="pillar-icon" aria-hidden="true">&#128187;</div>
+                                <h3>ACM Student Chapter</h3>
+                                <p class="text-sm">Web Lead &bull; Organizing monthly code challenges and tech talks.</p>
+                            </div>
+                            <div class="pillar-card compact">
+                                <div class="pillar-icon" aria-hidden="true">&#9917;</div>
+                                <h3>University Football Club</h3>
+                                <p class="text-sm">Midfielder &bull; Runner-up in Inter-University Zonal Championship.</p>
+                            </div>
+                            <div class="pillar-card compact">
+                                <div class="pillar-icon" aria-hidden="true">&#127793;</div>
+                                <h3>Green Campus Initiative</h3>
+                                <p class="text-sm">Volunteer &bull; Spearheaded tree-planting and e-waste recycling drive.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                    <span class="logo-text">Student<strong>Hub</strong></span>
+                </div>
+                <p class="footer-desc">Student profile and identity management system.</p>
+                <p class="copyright">&copy; 2026 StudentHub University Portal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shortcuts</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Office</h4>
+                <address class="footer-address">
+                    Registrar Desk, CHARUSAT<br>
+                    support@charusat.edu.in
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/components.js"></script>
 </body>
 </html>

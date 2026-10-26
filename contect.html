@@ -1,43 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Contact StudentHub & University Directory - Get in touch with departments, faculty advisors, student welfare, and emergency services.">
+    <title>StudentHub | Campus Contact Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="Contect.css">
 </head>
 <body>
-    <table>
-        <tr>
-            <th> Firstr Name</th>
-            <th> E-mail</th>
-            <th> Marks</th>
-        </tr>
-        <tr>
-            <th> Rudra</th>
-            <th> xyz1213@gmail.com</th>
-            <th> 10 CGPA</th>
-        </tr>
-        <tr>
-            <td>A1</td>
-            <td>A2</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>B1</td>
-            <td>B2</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>C1</td>
-            <td>C2</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>D1</td>
-            <td>A2</td>
-            <td>10</td>
-        </tr>
-    </table>
+    <!-- ========================================================================== -->
+    <!-- Practical 2: Semantic HTML5 Pages with Accessibility-Ready Structure -->
+    <!-- Skip link for keyboard accessibility -->
+    <!-- ========================================================================== -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="StudentHub Home Page">
+                <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                <span class="logo-text">Student<strong>Hub</strong></span>
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <nav class="primary-nav" id="primaryNav" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link active" aria-current="page">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle light and dark color theme">
+                        <span class="theme-icon" aria-hidden="true">&#9790;</span>
+                        <span class="theme-text">Dark Mode</span>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-wrapper" role="main">
+        <!-- Hero Section -->
+        <section class="page-hero" aria-labelledby="contact-heading">
+            <div class="container">
+                <span class="hero-badge">Campus Directory</span>
+                <h1 id="contact-heading">Connect with University Helpdesk</h1>
+                <p class="lead-text">
+                    Have questions regarding admissions, exams, hostel allotment, or technical issues? We are here to support you.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Cards Grid (Flexbox/CSS Grid) -->
+        <section class="section-container" aria-labelledby="quick-contacts-heading">
+            <div class="container">
+                <h2 id="quick-contacts-heading" class="sr-only">Key Campus Contact Points</h2>
+                <div class="pillars-grid">
+                    <article class="pillar-card">
+                        <div class="pillar-icon" aria-hidden="true">&#128222;</div>
+                        <h3>Student Registrar Office</h3>
+                        <p>Admissions, bonafide certificates, transcript requests &amp; fee verification.</p>
+                        <address class="card-address">
+                            Phone: <a href="tel:+912697265011">+91 2697 265011</a><br>
+                            Email: <a href="mailto:registrar@charusat.ac.in">registrar@charusat.ac.in</a>
+                        </address>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-icon" aria-hidden="true">&#128187;</div>
+                        <h3>IT &amp; Portal Helpdesk</h3>
+                        <p>StudentHub login issues, campus Wi-Fi access, and lab computing support.</p>
+                        <address class="card-address">
+                            Phone: <a href="tel:+912697265099">+91 2697 265099</a><br>
+                            Email: <a href="mailto:helpdesk@charusat.edu.in">helpdesk@charusat.edu.in</a>
+                        </address>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-icon" aria-hidden="true">&#127973;</div>
+                        <h3>Hostel &amp; Student Welfare</h3>
+                        <p>Hostel room allocation, mess food services, recreation and medical emergency.</p>
+                        <address class="card-address">
+                            Phone: <a href="tel:+912697265044">+91 2697 265044</a><br>
+                            Email: <a href="mailto:welfare@charusat.ac.in">welfare@charusat.ac.in</a>
+                        </address>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-icon" aria-hidden="true">&#128188;</div>
+                        <h3>Career &amp; Placement Cell</h3>
+                        <p>Campus recruitment, corporate internships, training sessions and resumes.</p>
+                        <address class="card-address">
+                            Phone: <a href="tel:+912697265077">+91 2697 265077</a><br>
+                            Email: <a href="mailto:training.placement@charusat.ac.in">training.placement@charusat.ac.in</a>
+                        </address>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Contacts Accessible Table (Semantic HTML5 Table) -->
+        <section class="section-container bg-surface" aria-labelledby="dept-table-heading">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="dept-table-heading">Department Faculty Coordinators</h2>
+                    <p>Direct contacts for academic coordinators across all colleges.</p>
+                </header>
+
+                <div class="table-responsive">
+                    <table class="data-table" aria-label="Department Faculty Coordinators Directory">
+                        <caption>University Department Heads &amp; Office Contacts</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Department</th>
+                                <th scope="col">Head of Department</th>
+                                <th scope="col">Official Email</th>
+                                <th scope="col">Building &amp; Room</th>
+                                <th scope="col">Office Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Information Technology</th>
+                                <td>Dr. Parth Shah</td>
+                                <td><a href="mailto:hod.it@charusat.ac.in">hod.it@charusat.ac.in</a></td>
+                                <td>CSPIT Building, 2nd Floor (Room 214)</td>
+                                <td>10:00 AM - 12:30 PM</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Computer Science &amp; Engg.</th>
+                                <td>Dr. Amit Ganatra</td>
+                                <td><a href="mailto:hod.cse@charusat.ac.in">hod.cse@charusat.ac.in</a></td>
+                                <td>CSPIT Building, 1st Floor (Room 108)</td>
+                                <td>11:00 AM - 01:00 PM</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AI &amp; Machine Learning</th>
+                                <td>Dr. Neha Patel</td>
+                                <td><a href="mailto:hod.aiml@charusat.ac.in">hod.aiml@charusat.ac.in</a></td>
+                                <td>DEPSTAR Block, 3rd Floor (Room 305)</td>
+                                <td>02:00 PM - 04:00 PM</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Electronics &amp; Comm.</th>
+                                <td>Dr. Trushit Upadhyaya</td>
+                                <td><a href="mailto:hod.ec@charusat.ac.in">hod.ec@charusat.ac.in</a></td>
+                                <td>CSPIT Building, Ground Floor (Room 012)</td>
+                                <td>10:00 AM - 12:00 PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Inquiry Form Section -->
+        <section class="section-container" aria-labelledby="inquiry-heading">
+            <div class="container grid-two-col">
+                <div class="contact-info-panel">
+                    <h2 id="inquiry-heading">Have a Specific Inquiry?</h2>
+                    <p>Fill out the inquiry form and our university student support desk will reply within 24 business hours.</p>
+                    
+                    <div class="contact-hours-box">
+                        <h3>Operating Hours</h3>
+                        <p><strong>Monday to Friday:</strong> 09:00 AM &ndash; 05:00 PM</p>
+                        <p><strong>Saturday:</strong> 09:00 AM &ndash; 01:00 PM</p>
+                        <p><strong>Sunday &amp; Holidays:</strong> Closed</p>
+                    </div>
+
+                    <div class="campus-address-box">
+                        <h3>Main Campus Location</h3>
+                        <address>
+                            Charotar University of Science and Technology (CHARUSAT)<br>
+                            CHARUSAT Campus, Highway 139, Changa<br>
+                            District: Anand, Gujarat, India - 388421
+                        </address>
+                    </div>
+                </div>
+
+                <div class="form-card contact-form-card">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" class="student-form" method="POST" action="#">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Your Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="name@domain.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject" class="form-label">Subject Category <span class="required">*</span></label>
+                            <select id="contactSubject" name="contactSubject" class="form-control" required>
+                                <option value="" disabled selected>Select Query Subject</option>
+                                <option value="Academic">Academic &amp; Course Registration</option>
+                                <option value="Events">Campus Events &amp; Fest Registration</option>
+                                <option value="Hostel">Hostel &amp; Campus Facilities</option>
+                                <option value="Technical">Portal / Technical Issue</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage" class="form-label">Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="contactMessage" rows="4" class="form-control" placeholder="Describe your question or concern in detail..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                    <span class="logo-text">Student<strong>Hub</strong></span>
+                </div>
+                <p class="footer-desc">Direct communications and campus helpdesk directory.</p>
+                <p class="copyright">&copy; 2026 StudentHub University Portal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shortcuts</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Portal</h4>
+                <ul class="footer-links">
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Campus</h4>
+                <address class="footer-address">
+                    CHARUSAT Campus, Changa<br>
+                    Email: info@charusat.ac.in
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/components.js"></script>
 </body>
 </html>

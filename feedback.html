@@ -1,30 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
+    <meta name="description" content="StudentHub Feedback Portal - Share your opinions and suggestions on campus amenities, library, canteen, portal UX, and academics.">
+    <title>StudentHub | Student Feedback &amp; Suggestions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="Feedback.css">
 </head>
 <body>
+    <!-- ========================================================================== -->
+    <!-- Practical 2: Semantic HTML5 Pages with Accessibility-Ready Structure -->
+    <!-- Skip link for keyboard accessibility -->
+    <!-- ========================================================================== -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="feedback-box">
-        <h2>Your Feedback</h2>
-        <p>Please help us improve our campus services.</p>
-        
-        <form>
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="StudentHub Home Page">
+                <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                <span class="logo-text">Student<strong>Hub</strong></span>
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <nav class="primary-nav" id="primaryNav" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link active" aria-current="page">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle light and dark color theme">
+                        <span class="theme-icon" aria-hidden="true">&#9790;</span>
+                        <span class="theme-text">Dark Mode</span>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email" required>
+    <main id="main-content" class="main-wrapper" role="main">
+        <!-- Hero Section -->
+        <section class="page-hero" aria-labelledby="feedback-page-heading">
+            <div class="container">
+                <span class="hero-badge">Student Voice Matters</span>
+                <h1 id="feedback-page-heading">Campus Feedback &amp; Suggestions</h1>
+                <p class="lead-text">
+                    Help us elevate campus facilities, academic support, canteen food quality, and the StudentHub portal experience.
+                </p>
+            </div>
+        </section>
 
-            <label>Your Message</label>
-            <textarea placeholder="Write your feedback here..." rows="5" required></textarea>
+        <!-- Feedback Form Container -->
+        <div class="container form-page-container">
+            <article class="form-card feedback-card">
+                <header class="form-card-header">
+                    <h2>Share Your Experience</h2>
+                    <p class="form-subtitle">All feedback is reviewed weekly by the University Quality Assurance Committee.</p>
+                </header>
 
-            <button type="submit" class="submit-btn">Send Feedback</button>
-        </form>
-    </div>
+                <div id="feedbackAlert" class="alert-box" role="alert" aria-live="polite" style="display: none;"></div>
 
+                <form id="feedbackForm" class="student-form" method="POST" action="#">
+                    <!-- Feedback Category -->
+                    <div class="form-group">
+                        <label for="feedbackCategory" class="form-label">
+                            Feedback Topic <span class="required">*</span>
+                        </label>
+                        <select id="feedbackCategory" name="feedbackCategory" class="form-control" required>
+                            <option value="" disabled selected>-- Select a Category --</option>
+                            <option value="Academic Services">Academic Services &amp; Curriculum</option>
+                            <option value="Campus Facilities">Campus Facilities &amp; Labs</option>
+                            <option value="Events & Clubs">Events, Clubs &amp; Fests</option>
+                            <option value="Canteen & Mess">Canteen &amp; Mess Services</option>
+                            <option value="StudentHub Website">StudentHub Portal Experience</option>
+                            <option value="Hostel Accommodation">Hostel &amp; Residential Life</option>
+                        </select>
+                    </div>
+
+                    <!-- Satisfaction Rating (Accessible Radio Buttons) -->
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Overall Satisfaction Rating <span class="required">*</span></legend>
+                        <div class="rating-group" role="radiogroup" aria-label="Satisfaction rating from 1 to 5 stars">
+                            <label class="rating-item">
+                                <input type="radio" name="rating" value="1" required>
+                                <span>&#128545; Poor</span>
+                            </label>
+                            <label class="rating-item">
+                                <input type="radio" name="rating" value="2">
+                                <span>&#128577; Fair</span>
+                            </label>
+                            <label class="rating-item">
+                                <input type="radio" name="rating" value="3">
+                                <span>&#128528; Good</span>
+                            </label>
+                            <label class="rating-item">
+                                <input type="radio" name="rating" value="4">
+                                <span>&#128522; Very Good</span>
+                            </label>
+                            <label class="rating-item">
+                                <input type="radio" name="rating" value="5">
+                                <span>&#128525; Excellent</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="feedbackName" class="form-label">Full Name (Optional)</label>
+                            <input type="text" id="feedbackName" name="feedbackName" class="form-control" placeholder="Leave blank to submit anonymously">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedbackEmail" class="form-label">Email Address (Optional)</label>
+                            <input type="email" id="feedbackEmail" name="feedbackEmail" class="form-control" placeholder="For follow-up responses">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackComments" class="form-label">
+                            Detailed Feedback or Suggestions <span class="required">*</span>
+                        </label>
+                        <textarea id="feedbackComments" name="feedbackComments" rows="5" class="form-control" placeholder="What worked well? What can we do better? Please be constructive..." required></textarea>
+                    </div>
+
+                    <div class="form-actions-row">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitFeedbackBtn">Submit My Feedback</button>
+                        <button type="reset" class="btn btn-secondary btn-lg">Reset</button>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                    <span class="logo-text">Student<strong>Hub</strong></span>
+                </div>
+                <p class="footer-desc">Continuous feedback loop driving campus improvement.</p>
+                <p class="copyright">&copy; 2026 StudentHub University Portal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shortcuts</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Campus</h4>
+                <address class="footer-address">
+                    CHARUSAT Campus, Changa<br>
+                    feedback@charusat.ac.in
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/components.js"></script>
 </body>
 </html>

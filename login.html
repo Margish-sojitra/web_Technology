@@ -1,56 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <meta name="description" content="StudentHub Login - Secure student, faculty, and administrator login portal.">
+    <title>StudentHub | Secure Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="Login.css">
 </head>
 <body>
-    <hr>
-    <h1>Student Register</h1>
-    <hr>
-    <form action="./action" name="myForm" method="get" onsubmit="return f()">
-        <label for="fname">Full Name : </label><br><br>
-        <input type="text" id="fname" name="fname" placeholder="Full Name">
-        <br><br><br>
+    <!-- ========================================================================== -->
+    <!-- Practical 2: Semantic HTML5 Pages with Accessibility-Ready Structure -->
+    <!-- Skip to main content link -->
+    <!-- ========================================================================== -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-        <label for="email">E-mail : </label><br><br>
-        <input type="email" id="email" name="Email" placeholder="xyz123@gmail.com">
-        <br><br><br>
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="StudentHub Home Page">
+                <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                <span class="logo-text">Student<strong>Hub</strong></span>
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <nav class="primary-nav" id="primaryNav" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                    <li><a href="admin.html" class="nav-link">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle light and dark color theme">
+                        <span class="theme-icon" aria-hidden="true">&#9790;</span>
+                        <span class="theme-text">Dark Mode</span>
+                    </button>
+                    <a href="login.html" class="btn btn-outline active" aria-current="page">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <label for="pw">Password : </label><br><br>
-        <input type="password" id="pw" name="password" placeholder="Password">
-        <br><br><br>
+    <main id="main-content" class="main-wrapper" role="main">
+        <div class="container form-page-container">
+            <article class="form-card auth-card">
+                <header class="form-card-header">
+                    <span class="form-badge">Portal Access</span>
+                    <h1>Student &amp; Faculty Login</h1>
+                    <p class="form-subtitle">Enter your university credentials to access your dashboard.</p>
+                </header>
 
-        <label>Gender : </label><br><br>
-        <input type="radio" id="male" name="gender" value="m"> <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="f"> <label for="female">FeMale</label>
-        <input type="radio" id="other" name="gender" value="other"> <label for="other">Other</label>
-        <br><br><br>
+                <div id="loginAlertBox" class="alert-box" role="alert" aria-live="polite" style="display: none;"></div>
 
-        <label for="dept">Department :</label><br><br>
-        <select id="dept" name="department">
-            <option value="" selected disabled>Select Department</option>
-            <option value="CS">CS</option>
-            <option value="IT">IT</option>
-            <option value="AIML">AI-Ml</option>
-            <option value="EC">EC</option>
-        </select>
-        <br><br><br>
+                <form id="loginForm" class="student-form" method="POST" action="dashboard.html">
+                    <div class="form-group">
+                        <label for="loginIdentifier" class="form-label">
+                            Student ID or University Email <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="loginIdentifier" 
+                            name="loginIdentifier" 
+                            class="form-control" 
+                            placeholder="e.g. 23IT001 or student@charusat.edu.in" 
+                            required 
+                            autocomplete="username"
+                            aria-describedby="loginIdentifierError"
+                        >
+                        <span id="loginIdentifierError" class="error-message" role="alert"></span>
+                    </div>
 
-        <label for="Hobbies">Hobbies : </label><br><br>
-        <textarea id="Hobbies" name="Hobbies" rows="4" cols="30" placeholder="Enter Hobbies"></textarea>
-        <br><br><br>
+                    <div class="form-group">
+                        <div class="label-row-flex">
+                            <label for="loginPassword" class="form-label">
+                                Password <span class="required" aria-hidden="true">*</span>
+                            </label>
+                            <a href="faq.html#password-reset" class="link-small">Forgot Password?</a>
+                        </div>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                name="loginPassword" 
+                                class="form-control" 
+                                placeholder="Enter your password" 
+                                required 
+                                autocomplete="current-password"
+                                aria-describedby="loginPasswordError"
+                            >
+                            <button type="button" class="toggle-password-btn" data-target="loginPassword" aria-label="Toggle password visibility">&#128065;</button>
+                        </div>
+                        <span id="loginPasswordError" class="error-message" role="alert"></span>
+                    </div>
 
-        <input type="submit" value="Register" class="last" id="submit">
-        <input type="reset" value="reset" class="last" id="reset">
-    </form>
+                    <div class="form-group remember-row">
+                        <label class="checkbox-label" for="rememberMe">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span>Keep me signed in on this device</span>
+                        </label>
+                    </div>
 
-    <script>
-        function f() {
-            alert("Register successful");
-        }
-    </script>
+                    <div class="form-actions-row">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" id="loginSubmitBtn">
+                            Sign In to StudentHub
+                        </button>
+                    </div>
+
+                    <p class="form-footer-text">
+                        Don't have a student account yet? <a href="register.html" class="link-bold">Register here</a>
+                    </p>
+                </form>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <span class="logo-icon" aria-hidden="true">&#127891;</span>
+                    <span class="logo-text">Student<strong>Hub</strong></span>
+                </div>
+                <p class="footer-desc">Secure portal authentication for students and university staff.</p>
+                <p class="copyright">&copy; 2026 StudentHub University Portal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Help Desk</a></li>
+                    <li><a href="admin.html">Admin Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Campus Support</h4>
+                <address class="footer-address">
+                    IT Support Center, CHARUSAT<br>
+                    itsupport@charusat.edu.in
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/components.js"></script>
 </body>
 </html>
