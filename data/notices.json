@@ -1,0 +1,38 @@
+[
+  {
+    "id": "NOT-101",
+    "title": "Mid-Semester Examination Schedule Announced",
+    "tag": "Urgent",
+    "tagClass": "tag-urgent",
+    "date": "2026-10-24",
+    "summary": "Exam timetables for all 3rd and 5th-semester engineering branches are published. Hall tickets will be verified at room entrances.",
+    "department": "Examination Cell"
+  },
+  {
+    "id": "NOT-102",
+    "title": "Campus Placement Drive: TCS, Infosys & L&T Infotech",
+    "tag": "General",
+    "tagClass": "tag-general",
+    "date": "2026-10-22",
+    "summary": "Pre-placement orientations and mock aptitude sessions will commence this Friday at the Central Auditorium for 7th-semester eligible students.",
+    "department": "Placement Cell"
+  },
+  {
+    "id": "NOT-103",
+    "title": "National Merit Scholarship Portal Open for 2026-27",
+    "tag": "Scholarship",
+    "tagClass": "tag-scholarship",
+    "date": "2026-10-20",
+    "summary": "Eligible state and national merit candidates can submit proof documents to the student welfare desk by November 10th for direct disbursement.",
+    "department": "Student Welfare Office"
+  },
+  {
+    "id": "NOT-104",
+    "title": "Central Library Extended Hours During Exam Season",
+    "tag": "General",
+    "tagClass": "tag-general",
+    "date": "2026-10-18",
+    "summary": "Central Knowledge Hub & Digital Reading Rooms will remain open until midnight from November 1st to December 15th.",
+    "department": "University Library"
+  }
+]
