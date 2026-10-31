@@ -1,9 +1,0 @@
-/* ========================================================================== */
-/* Practical 3: Responsive UI Design using CSS Grid and Flexbox - Register Styles */
-/* ========================================================================== */
-@import url('css/style.css');
-
-.link-inline {
-    text-decoration: underline;
-    font-weight: 600;
-}

@@ -1,9 +1,0 @@
-/* ========================================================================== */
-/* Practical 3: Responsive UI Design using CSS Grid and Flexbox - Feedback Styles */
-/* ========================================================================== */
-@import url('css/style.css');
-
-.feedback-card {
-    max-width: 720px;
-    margin: 0 auto;
-}

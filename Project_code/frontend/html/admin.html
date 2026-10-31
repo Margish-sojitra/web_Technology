@@ -1,0 +1,22 @@
+<!-- ==========================================================================
+     PRACTICAL 2 & 14: Semantic HTML5 Pages - Administrative Portal Gateway
+     Subject: Web Development Frameworks (AIUE203)
+     Project: StudentHub Portal | CHARUSAT University
+     File: Project_code/frontend/html/admin.html
+     Description: Entrypoint redirecting authenticated university staff to backend administrative operations
+     ========================================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=../../backend/admin.php">
+    <title>Redirecting to Administration | StudentHub Portal</title>
+</head>
+<body>
+    <p>Opening the protected administration page. If you are not redirected, <a href="../../backend/admin.php">continue to administration</a>.</p>
+    <script>
+        window.location.replace("../../backend/admin.php");
+    </script>
+</body>
+</html>
